@@ -47,6 +47,22 @@ class TallerController
         
         $tallerId = $_POST['taller_id'] ?? 0;
         $usuarioId = $_SESSION['id'];
+        $solicitudes =  $this->solicitudModel->getById($tallerId ,$usuarioId);
+        
+        if(!$solicitudes){
+            if ($this->solicitudModel->insertar($tallerId,$usuarioId)) {
+                echo json_encode(['success' => true,'message'=>'Solicitud enviada']);
+                exit;
+            } else {
+                echo json_encode(['success' => false, 'error' => 'Error al solicitar']);
+                exit;
+            }
+
+        }else{
+            echo json_encode(['success' => false, 'error' => 'Ya cuenta con una solicitud activa o aprobada para este taller']);
+            exit;
+        }
+           
 
     }
 }

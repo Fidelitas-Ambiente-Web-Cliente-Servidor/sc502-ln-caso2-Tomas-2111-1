@@ -37,8 +37,12 @@ class AdminController
         $solicitudId = $_POST['id_solicitud'] ?? 0;
         
         try {
-            
-            echo json_encode(['success' => true]);
+            if ($this->solicitudModel->aprobar($solicitudId)) {
+                echo json_encode(['success' => true]);
+            } else {
+                echo json_encode(['success' => false, 'error' => 'Error al aprobar']);
+            }
+
             
         } catch (Exception $e) {
             echo json_encode(['success' => false, 'error' => $e->getMessage()]);

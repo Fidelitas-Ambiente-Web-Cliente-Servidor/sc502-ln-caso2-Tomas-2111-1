@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Solicitudes pendientes</title>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/style.css">
     <script src="public/js/jquery-4.0.0.min.js"></script>
     
 </head>
@@ -16,7 +19,7 @@
         </div>
         <div>
             <span>Admin: <?= htmlspecialchars($_SESSION['nombre'] ?? $_SESSION['user'] ?? 'Administrador') ?></span>
-            <button id="btnLogout" class="btn-logout">Cerrar sesión</button>
+            <button id="btnLogout" class="btn-logout"><a href="./index.php?page=logout">Cerrar sesión</a></button>
         </div>
     </nav>
     
@@ -30,14 +33,13 @@
                         <th>ID</th>
                         <th>Taller</th>
                         <th>Solicitante</th>
-                        <th>Usuario</th>
                         <th>Fecha</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody id="solicitudes-body">
                     <tr>
-                        <td colspan="6" class="loader">Cargando solicitudes...</td>
+                       
                     </tr>
                 </tbody>
             </table>
@@ -46,6 +48,6 @@
 
     <div id="mensaje"></div>
 
-    
+    <script src="./public/js/solicitud.js"></script>
 </body>
 </html>

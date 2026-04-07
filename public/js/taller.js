@@ -25,7 +25,7 @@ $(function () {
                             <form action="/sc502-ln-caso2-Tomas-2111-1/index.php" method="POST" id="solicitarTaller">
                                 <input type="hidden" name="option" value="solicitar">
                                 <input type="hidden" name="taller_id" value="${taller.id}">
-                                <button type="submit">Inscribirme</button>
+                                <button type="submit" id="inscribirme">Inscribirme</button>
                             </form>
                         </td>
                     </tr>

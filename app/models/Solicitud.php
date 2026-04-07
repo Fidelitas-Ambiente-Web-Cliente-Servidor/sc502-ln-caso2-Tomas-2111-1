@@ -8,9 +8,9 @@ class Solicitud
         $this->conn = $db;
     }
 
-    public function rechazar($tallerId)
+    public function rechazar($id)
     {
-        $query = "UPDATE solicityd SET estado='rechazada' WHERE id=?";
+        $query = "UPDATE solicitudes SET estado='rechazada' WHERE id=?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -18,9 +18,9 @@ class Solicitud
 
     }
 
-    public function aprobar($tallerId)
+    public function aprobar($id)
     {
-        $query = "UPDATE solicityd SET estado='aprobada' WHERE id=?";
+        $query = "UPDATE solicitudes SET estado='aprobada' WHERE id=?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -48,6 +48,19 @@ class Solicitud
         return $result->fetch_assoc();
     
     }
+
+    public function getAllPendientes()
+    {
+        $result = $this->conn->query("SELECT solicitudes.id,talleres.nombre, usuarios.username,solicitudes.fecha_solicitud FROM solicitudes INNER JOIN usuarios ON solicitudes.usuario_id= usuarios.id INNER JOIN talleres ON solicitudes.taller_id= talleres.id WHERE estado='pendiente' ORDER BY solicitudes.id");
+        $solicitudes = [];
+        while ($row = $result->fetch_assoc()) {
+            $solicitudes[] = $row;
+        }
+        return $solicitudes;
+
+    }
+
+    
 
 
 }

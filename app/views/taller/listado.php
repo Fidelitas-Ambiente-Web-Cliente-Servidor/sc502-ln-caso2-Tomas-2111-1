@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
 
-<body class="container mt-5">
+<body >
 
     <nav>
         <div>
@@ -23,11 +23,11 @@
         </div>
         <div>
             <span> <?= htmlspecialchars($_SESSION['nombre'] ?? $_SESSION['user'] ?? 'Usuario') ?></span>
-            <button id="btnLogout" class="btn btn-primary">Cerrar sesión</button>
+            <button id="btnLogout" class="btn-logout" ><a href="./index.php?page=logout">Cerrar sesión</a></button>
         </div>
     </nav>
     <main>
-        <h3>Talleres</h3>
+        <h2>Talleres</h2>
 
         <table class="table table-bordered" id="tablaTalleres">
             <thead>

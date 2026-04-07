@@ -36,6 +36,7 @@ class TallerController
         $talleres = $this->tallerModel->getAllDisponibles();
         header('Content-Type: application/json');
         echo json_encode($talleres);
+        exit;
     }
     
     public function solicitar()

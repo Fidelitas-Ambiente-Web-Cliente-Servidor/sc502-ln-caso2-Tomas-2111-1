@@ -10,31 +10,33 @@
         rel="stylesheet">
     <script src="public/js/jquery-4.0.0.min.js"></script>
     <script src="public/js/auth.js"></script>
+    <link rel="stylesheet" href="./public/css/style.css">
 </head>
 
-<body class="container mt-5">
+<body class="login">
+    <div class="login-card">
+        <h2>Login</h2>
 
-    <h2>Login</h2>
+        <form id="formLogin">
+            <input
+                class="form-control mb-2"
+                name="username"
+                id="username"
+                placeholder="Usuario">
 
-    <form id="formLogin">
-        <input
-            class="form-control mb-2"
-            name="username"
-            id="username"
-            placeholder="Usuario">
+            <input
+                type="password"
+                class="form-control mb-2"
+                name="password"
+                id="password"
+                placeholder="Contraseña">
 
-        <input
-            type="password"
-            class="form-control mb-2"
-            name="password"
-            id="password"
-            placeholder="Contraseña">
-
-        <button type="submit" class="btn btn-primary">
-            Ingresar
-        </button>
-        <a href="index.php?page=registro" class="btn btn-secondary">Registrarse</a>
-    </form>
+            <button type="submit" class="btn btn-primary">
+                Ingresar
+            </button>
+            <a href="index.php?page=registro" class="btn btn-secondary">Registrarse</a>
+        </form>
+    </div>
 
 
 

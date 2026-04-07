@@ -26,6 +26,19 @@ class AdminController
         require __DIR__ . '/../views/admin/solicitudes.php';
     }
     
+    public function getSolicitudesJson()
+    {
+        if (!isset($_SESSION['id'])) {
+            echo json_encode([]);
+            return;
+        }
+        
+        $solicitudes = $this->solicitudModel->getAllPendientes();
+        header('Content-Type: application/json');
+        echo json_encode($solicitudes);
+        exit;
+    }
+
     // Aprobar solicitud
     public function aprobar()
     {
@@ -38,7 +51,7 @@ class AdminController
         
         try {
             if ($this->solicitudModel->aprobar($solicitudId)) {
-                echo json_encode(['success' => true]);
+                echo json_encode(['success' => true,'message'=>'Solicitud aprobada']);
             } else {
                 echo json_encode(['success' => false, 'error' => 'Error al aprobar']);
             }
@@ -58,7 +71,7 @@ class AdminController
         $solicitudId = $_POST['id_solicitud'] ?? 0;
         
         if ($this->solicitudModel->rechazar($solicitudId)) {
-            echo json_encode(['success' => true]);
+            echo json_encode(['success' => true,'message'=>'Solicitud rechazada']);
         } else {
             echo json_encode(['success' => false, 'error' => 'Error al rechazar']);
         }

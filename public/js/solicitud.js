@@ -27,6 +27,7 @@ $(function () {
                                 <form  action="/sc502-ln-caso2-Tomas-2111-1/index.php" method="POST" class="form-accion-admin">
                                     <input type="hidden" name="option" value="aprobar">
                                     <input type="hidden" name="id_solicitud" value="${solicitud.id}">
+                                    <input type="hidden" name="tallerId" value="${solicitud.tallerId}">
                                     <button type="submit" style="background-color: #25a058; color: white;  padding: 5px 10px; cursor: pointer;">Aprobar</button>
                                 </form>
 

@@ -48,9 +48,10 @@ class AdminController
         }
         
         $solicitudId = $_POST['id_solicitud'] ?? 0;
-        
+        $tallerId=$_POST['tallerId'] ?? 0;
         try {
             if ($this->solicitudModel->aprobar($solicitudId)) {
+                $this->tallerModel->descontarCupo($tallerId);
                 echo json_encode(['success' => true,'message'=>'Solicitud aprobada']);
             } else {
                 echo json_encode(['success' => false, 'error' => 'Error al aprobar']);

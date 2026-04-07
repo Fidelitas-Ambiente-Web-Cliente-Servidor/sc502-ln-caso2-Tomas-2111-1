@@ -10,31 +10,34 @@
         rel="stylesheet">
     <script src="public/js/jquery-4.0.0.min.js"></script>
     <script src="public/js/register.js"></script>
+    <link rel="stylesheet" href="./public/css/style.css">
 </head>
 
-<body class="container mt-5">
+<body class="login">
+    <div class="login-card">
+        <h2>Registro</h2>
 
-    <h2>Registro</h2>
+        <form id="formRegister">
+            <input
+                class="form-control mb-2"
+                name="username"
+                id="username"
+                placeholder="Usuario">
 
-    <form id="formRegister">
-        <input
-            class="form-control mb-2"
-            name="username"
-            id="username"
-            placeholder="Usuario">
+            <input
+                type="password"
+                class="form-control mb-2"
+                name="password"
+                id="password"
+                placeholder="Contraseña">
 
-        <input
-            type="password"
-            class="form-control mb-2"
-            name="password"
-            id="password"
-            placeholder="Contraseña">
+            <button type="submit" class="btn btn-primary">
+                Ingresar
+            </button>
 
-        <button type="submit" class="btn btn-primary">
-            Ingresar
-        </button>
-
-    </form>
+        </form>
+    </div>
+    
 
 
 

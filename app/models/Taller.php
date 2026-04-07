@@ -45,7 +45,7 @@ class Taller
     {
         $query = "UPDATE talleres SET cupo_disponible=cupo_disponible-1 WHERE id=?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $tallerId);
         $stmt->execute();
         return $stmt->affected_rows > 0;
 
@@ -55,7 +55,7 @@ class Taller
     {
         $query = "UPDATE talleres SET cupo_disponible=cupo_disponible+1 WHERE id=?";
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $tallerId);
         $stmt->execute();
         return $stmt->affected_rows > 0;
 
